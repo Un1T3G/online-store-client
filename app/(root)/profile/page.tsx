@@ -5,6 +5,8 @@ import { redirect } from 'next/navigation'
 import { ACCESS_TOKEN_KEY, userService } from 'shared/api'
 import { routes } from 'shared/config'
 
+export const revalidate = 0
+
 async function getProfile() {
   const cookie = await cookies()
   const accessToken = cookie.get(ACCESS_TOKEN_KEY)?.value

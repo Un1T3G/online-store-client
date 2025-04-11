@@ -7,6 +7,8 @@ import {
 } from 'shared/api'
 import { routes } from 'shared/config'
 
+export const revalidate = 0
+
 async function getMostPopular() {
   const products = await productService.getMostPopular({ page: 1, perPage: 7 })
   return {

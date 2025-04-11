@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   title: 'Каталог',
 }
 
+export const revalidate = 0
+
 async function getProducts(page: number, searchTerm?: string | null) {
   const products = await productService.getAll({
     page,

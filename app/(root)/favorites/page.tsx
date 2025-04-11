@@ -4,6 +4,8 @@ import { cookies } from 'next/headers'
 import { ACCESS_TOKEN_KEY, productService } from 'shared/api'
 import { PRODUCT_PER_PAGE } from 'shared/config'
 
+export const revalidate = 0
+
 export const metadata: Metadata = {
   title: 'Избранное',
 }
