@@ -1,6 +1,6 @@
 import { fetchAuth } from '../fetch'
 import { PaginationResult, PaginatorQuery } from '../query.types'
-import { OrderCreateDto, OrderResponse } from './order.types'
+import { OrderCreateDto, OrderResponse, PaymentResponse } from './order.types'
 
 class OrderService {
   getAll(query?: PaginatorQuery) {
@@ -14,7 +14,7 @@ class OrderService {
   }
 
   create(dto: OrderCreateDto) {
-    return fetchAuth.post<OrderResponse>('orders/place', dto)
+    return fetchAuth.post<PaymentResponse>('orders/place', dto)
   }
 }
 

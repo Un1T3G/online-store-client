@@ -1,5 +1,12 @@
 export interface OrderResponse {
   id: string
+  total: number
+  status: EnumOrderStatus
+  createdAt: string
+}
+
+export interface PaymentResponse {
+  id: string
   confirmation: {
     confirmation_url: string
   }
