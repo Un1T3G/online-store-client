@@ -10,6 +10,8 @@ async function getColors() {
   return colors.data
 }
 
+export const revalidate = 0
+
 export const metadata: Metadata = {
   title: 'Создание товара',
 }
