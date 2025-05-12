@@ -23,6 +23,6 @@ export interface OrderItem {
 }
 
 export enum EnumOrderStatus {
-  PENDING,
-  PAYED,
+  PENDING = 'PENDING',
+  PAYED = 'PAYED',
 }

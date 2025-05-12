@@ -7,6 +7,6 @@ export const getOrderStatus = (status: EnumOrderStatus) => {
     case EnumOrderStatus.PAYED:
       return 'Выполнен'
     default:
-      throw new Error('lol')
+      throw new Error(status)
   }
 }

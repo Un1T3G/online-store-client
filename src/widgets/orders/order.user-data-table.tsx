@@ -6,6 +6,8 @@ import { DataTable, TableCell, TableRow } from 'shared/ui'
 export const OrderUserDataTable = () => {
   const { data, isLoading, isError, error } = useOrdersByUserQuery()
 
+  console.log(data)
+
   return (
     <DataTable
       data={{
