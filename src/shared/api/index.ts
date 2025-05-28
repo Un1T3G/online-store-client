@@ -1,6 +1,7 @@
 export * from './api.lib'
 export * from './auth'
 export * from './category'
+export * from './chatbot'
 export * from './colors'
 export * from './files'
 export * from './orders'

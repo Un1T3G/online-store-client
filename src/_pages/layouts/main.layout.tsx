@@ -1,9 +1,12 @@
 'use client'
 
+import { ProductCard } from 'entities/products'
+import { Bot } from 'lucide-react'
 import { PropsWithChildren, useState } from 'react'
 import { NoSSR } from 'shared/lib'
-import { Container } from 'shared/ui'
+import { Button, Container } from 'shared/ui'
 import { CartModal } from 'widgets/cart-modal'
+import { ChatbotModal } from 'widgets/chatbot'
 import {
   AdminNavigation,
   Footer,
@@ -11,14 +14,19 @@ import {
   MobileSheet,
   Navigation,
 } from 'widgets/layout'
-import { SearchModal } from 'widgets/products'
+import { ProductGrid, SearchModal } from 'widgets/products'
 import { UserProfileCard } from 'widgets/users'
 
 const Header = () => {
-  const [open, setOpen] = useState(false)
+  const [openDrawer, setOpenDrawer] = useState(false)
+  const [chatbotOpen, setChatbotOpen] = useState(false)
 
-  const handleOpen = () => {
-    setOpen(true)
+  const handleOpenDrawer = () => {
+    setOpenDrawer(true)
+  }
+
+  const handleOpenChatbot = () => {
+    setChatbotOpen(true)
   }
 
   return (
@@ -32,7 +40,7 @@ const Header = () => {
           <NoSSR>
             <Navigation
               cartSlot={<CartModal />}
-              openSheet={handleOpen}
+              openSheet={handleOpenDrawer}
               profileCard={<UserProfileCard className="pl-2" />}
             />
           </NoSSR>
@@ -40,12 +48,33 @@ const Header = () => {
       </header>
       <NoSSR>
         <MobileSheet
-          open={open}
-          onOpenChange={setOpen}
+          open={openDrawer}
+          onOpenChange={setOpenDrawer}
           logoSlot={<Logo alwaysShow={true} />}
           cartSlot={<CartModal />}
           profileSlot={<UserProfileCard className="pl-2" />}
           adminNavigationSlot={<AdminNavigation />}
+        />
+        <Button
+          className="fixed bottom-4 right-4"
+          size="icon"
+          onClick={handleOpenChatbot}
+        >
+          <Bot />
+        </Button>
+        <ChatbotModal
+          open={chatbotOpen}
+          onOpenChange={setChatbotOpen}
+          renderProductGrid={(products) => (
+            <ProductGrid
+              isChatbotGrid={true}
+              products={products}
+              className="my-2 bg-slate-100 p-2 rounded-lg"
+              renderProduct={(product) => (
+                <ProductCard key={product.id} product={product} />
+              )}
+            />
+          )}
         />
       </NoSSR>
     </>
