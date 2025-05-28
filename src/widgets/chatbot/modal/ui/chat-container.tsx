@@ -11,9 +11,13 @@ interface IProps {
   renderProductGrid: (products: ProductResponse[]) => ReactNode
 }
 
-export const Chat = ({ messages, botPending, renderProductGrid }: IProps) => {
+export const ChatContainer = ({
+  messages,
+  botPending,
+  renderProductGrid,
+}: IProps) => {
   return (
-    <ScrollArea className="p-4 bg-slate-100 rounded-lg flex-1 w-full h-[calc(100vh-2*2rem-2*52px)]">
+    <ScrollArea className="p-4 bg-slate-100 rounded-lg flex-1 w-full h-[calc(100dvh-2*2rem-2*52px)]">
       <div className="flex flex-col space-y-4">
         {messages.map((item, i) => (
           <ChatMessage

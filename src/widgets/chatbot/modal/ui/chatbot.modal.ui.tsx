@@ -15,7 +15,7 @@ import {
   ScrollArea,
 } from 'shared/ui'
 import { useChatbot } from '../chatbot.modal.model'
-import { Chat } from './chat'
+import { ChatContainer } from './chat-container'
 
 interface IProps {
   open: boolean
@@ -58,7 +58,7 @@ export const ChatbotModal = ({
           </DialogClose>
         </DialogHeader>
         <ScrollArea className="flex-1 bg-slate-100 rounded-lg h-[500px]">
-          <Chat
+          <ChatContainer
             messages={messages}
             botPending={botPending}
             renderProductGrid={renderProductGrid}
