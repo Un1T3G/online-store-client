@@ -57,7 +57,7 @@ export const MobileSheet = ({
             </Button>
             {cartSlot}
             <Button className="justify-start" variant="secondary" asChild>
-              <Link href={routes.profile}>
+              <Link href={routes.catalog}>
                 <ShoppingBag />
                 Каталог
               </Link>
