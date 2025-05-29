@@ -22,7 +22,12 @@ export const ProductCard = ({
         href={routes.productDetail(product.id)}
         className="relative w-full h-0 pb-[100%] rounded-lg overflow-hidden bg-zinc-200 mb-2"
       >
-        <Image src={product.images[0]} alt={product.title} fill />
+        <Image
+          src={product.images[0]}
+          alt={product.title}
+          fill
+          className="object-cover"
+        />
         {renderHeaderAction}
       </Link>
       <h2 className="text-base font-semibold line-clamp-1 mb-1">
