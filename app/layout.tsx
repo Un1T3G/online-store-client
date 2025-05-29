@@ -5,6 +5,10 @@ import { Geist_Mono, Inter } from 'next/font/google'
 
 export const metadata: Metadata = {
   title: 'Онлайн магазин',
+  description: 'Онлайн магазин Fake-Store',
+  authors: [
+    { name: 'Xayratdinov Kamalatdin', url: 'https://github.com/un1t3g' },
+  ],
 }
 
 const interFont = Inter({
