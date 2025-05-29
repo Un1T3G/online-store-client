@@ -4,6 +4,7 @@ import {
   OrderResponse,
   PaginationResult,
   PaginatorQuery,
+  PaymentResponse,
   orderService,
 } from 'shared/api'
 import { MutationOptions } from 'shared/types'
@@ -36,7 +37,7 @@ export const useOrdersByUserQuery = (
 }
 
 export const useCreateOrderMutation = (
-  options?: MutationOptions<OrderResponse, Error, OrderCreateDto>
+  options?: MutationOptions<PaymentResponse, Error, OrderCreateDto>
 ) => {
   return useMutation({
     mutationKey: orderKeys.orderCreate,

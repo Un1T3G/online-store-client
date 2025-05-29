@@ -17,7 +17,7 @@ export const ProductImages = ({ images }: IProps) => {
 
   return (
     <>
-      <div className="relative w-full h-[0px] pb-[100%] rounded-lg overflow-hidden mb-4">
+      <div className="relative w-full h-[0px] pb-[100%] rounded-lg overflow-hidden mb-4 bg-zinc-200">
         <Image
           alt={`Изображение_${selectedIndex}`}
           src={images[selectedIndex]}
@@ -30,7 +30,7 @@ export const ProductImages = ({ images }: IProps) => {
           <button
             key={i}
             className={cn(
-              'relative w-full h-[0px] pb-[100%] rounded-lg overflow-hidden cursor-pointer mb-4 border-2 border-transparent',
+              'relative w-full h-[0px] pb-[100%] rounded-lg overflow-hidden cursor-pointer border-2 border-transparent bg-zinc-200',
               selectedIndex === i && 'border-blue-500'
             )}
             onClick={() => handleChange(i)}
