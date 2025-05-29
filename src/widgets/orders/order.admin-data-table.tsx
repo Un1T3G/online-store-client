@@ -25,7 +25,7 @@ export const OrderAdminDataTable = () => {
       fetchPrev={fetchPrev}
       renderRow={(item, index) => (
         <TableRow key={item.id}>
-          <TableCell>{index + 1}</TableCell>
+          <TableCell>{index + 1 + itemsPerPage * (page - 1)}</TableCell>
           <TableCell>{new Date(item.createdAt).toLocaleString()}</TableCell>
           <TableCell>{getOrderStatus(item.status)}</TableCell>
           <TableCell className="justify-end">

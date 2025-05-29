@@ -33,7 +33,7 @@ export const ProductDataTable = ({ searchTerm }: IProps) => {
       fetchPrev={fetchPrev}
       renderRow={(item, index) => (
         <TableRow key={item.id}>
-          <TableCell>{index + 1}</TableCell>
+          <TableCell>{index + 1 + itemsPerPage * (page - 1)}</TableCell>
           <TableCell>{item.title}</TableCell>
           <TableCell>{formatPrice(item.price)}</TableCell>
           <TableCell>

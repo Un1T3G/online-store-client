@@ -32,7 +32,7 @@ export const ColorDataTable = ({ searchTerm }: IProps) => {
       fetchPrev={fetchPrev}
       renderRow={(item, index) => (
         <TableRow key={item.id}>
-          <TableCell>{index + 1}</TableCell>
+          <TableCell>{index + 1 + itemsPerPage * (page - 1)}</TableCell>
           <TableCell>{item.name}</TableCell>
           <TableCell>
             <div className="flex items-center space-x-2">

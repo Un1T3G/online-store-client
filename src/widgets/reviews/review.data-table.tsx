@@ -27,7 +27,7 @@ export const ReviewDataTable = () => {
       fetchPrev={fetchPrev}
       renderRow={(item, index) => (
         <TableRow key={item.id}>
-          <TableCell>{index + 1}</TableCell>
+          <TableCell>{index + 1 + itemsPerPage * (page - 1)}</TableCell>
           <TableCell>{item.user.name}</TableCell>
           <TableCell>
             <div className="flex space-x-1">

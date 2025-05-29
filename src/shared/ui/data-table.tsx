@@ -82,7 +82,7 @@ export const DataTable = <T,>({
         </Table>
       </Card>
       {(data?.meta.next || data?.meta.prev) && (
-        <div className="flex justify-end space-y-2">
+        <div className="flex justify-end space-x-2">
           {data.meta.prev && (
             <Button variant="outline" onClick={fetchPrev}>
               <ArrowLeft />

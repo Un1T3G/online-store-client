@@ -32,7 +32,7 @@ export const CategoryDataTable = ({ searchTerm }: IProps) => {
       fetchPrev={fetchPrev}
       renderRow={(item, index) => (
         <TableRow key={item.id}>
-          <TableCell>{index + 1}</TableCell>
+          <TableCell>{index + 1 + itemsPerPage * (page - 1)}</TableCell>
           <TableCell>{item.title}</TableCell>
           <TableCell className="flex justify-end space-x-2">
             <CategoryDeleteButton id={item.id} />

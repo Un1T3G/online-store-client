@@ -49,7 +49,7 @@ export const UserProfileCard = ({ className }: IProps) => {
 
   if (isLoading) {
     return (
-      <div className={cn('flex space-x-2', className)}>
+      <div className={cn('flex items-center space-x-2', className)}>
         <Skeleton className="rounded-lg w-24 h-4" />
         <Skeleton className="rounded-full w-9 h-9" />
       </div>
