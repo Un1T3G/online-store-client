@@ -5,8 +5,8 @@ import { Bot } from 'lucide-react'
 import { PropsWithChildren, useState } from 'react'
 import { NoSSR } from 'shared/lib'
 import { Button, Container } from 'shared/ui'
+import { AIbotChatModal } from 'widgets/ai-bot'
 import { CartModal } from 'widgets/cart-modal'
-import { ChatbotModal } from 'widgets/chatbot'
 import {
   AdminNavigation,
   Footer,
@@ -62,7 +62,7 @@ const Header = () => {
         >
           <Bot />
         </Button>
-        <ChatbotModal
+        <AIbotChatModal
           open={chatbotOpen}
           onOpenChange={setChatbotOpen}
           renderProductGrid={(products) => (

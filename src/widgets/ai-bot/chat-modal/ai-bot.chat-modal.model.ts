@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ChatItem } from './chatbot.modal.types'
+import { ChatItem } from './ai-bot.chat-modal.types'
 
 const initialValues = [
   {

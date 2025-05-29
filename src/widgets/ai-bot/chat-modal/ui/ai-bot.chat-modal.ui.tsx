@@ -1,9 +1,9 @@
 'use client'
 
-import { ChatbotForm } from 'features/chatbot'
+import { AIbotChatForm } from 'features/ai-bot'
 import { X } from 'lucide-react'
 import { ReactNode, useState } from 'react'
-import { ChatbotResponse, ProductResponse, errorCatch } from 'shared/api'
+import { AIbotChatResponse, ProductResponse, errorCatch } from 'shared/api'
 import {
   Button,
   Dialog,
@@ -14,7 +14,7 @@ import {
   DialogTitle,
   ScrollArea,
 } from 'shared/ui'
-import { useChatbot } from '../chatbot.modal.model'
+import { useChatbot } from '../ai-bot.chat-modal.model'
 import { ChatContainer } from './chat-container'
 
 interface IProps {
@@ -23,7 +23,7 @@ interface IProps {
   renderProductGrid: (products: ProductResponse[]) => ReactNode
 }
 
-export const ChatbotModal = ({
+export const AIbotChatModal = ({
   open,
   onOpenChange,
   renderProductGrid,
@@ -41,7 +41,7 @@ export const ChatbotModal = ({
     setBotPending(true)
   }
 
-  const handleSuccessResponse = (response: ChatbotResponse) => {
+  const handleSuccessResponse = (response: AIbotChatResponse) => {
     setBotPending(false)
     addMessage({ isUser: false, content: response })
   }
@@ -65,7 +65,7 @@ export const ChatbotModal = ({
           />
         </ScrollArea>
         <DialogFooter>
-          <ChatbotForm
+          <AIbotChatForm
             onError={handleOnError}
             onSendMessage={handleUserSendMessage}
             onSuccessResponse={handleSuccessResponse}

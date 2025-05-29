@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 import { ProductResponse } from 'shared/api'
 import { cn } from 'shared/lib'
 import { ScrollArea } from 'shared/ui'
-import { ChatItem } from '../chatbot.modal.types'
+import { ChatItem } from '../ai-bot.chat-modal.types'
 
 interface IProps {
   messages: ChatItem[]

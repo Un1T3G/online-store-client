@@ -1,22 +1,22 @@
-import { useChatbotGenerativeResponseMutation } from 'entities/chatbot'
+import { useAIbotGenerativeResponseMutation } from 'entities/ai-bot'
 import { useFormik } from 'formik'
 import { Search, Send } from 'lucide-react'
-import { ChatbotDto, ChatbotResponse, errorCatch } from 'shared/api'
+import { AIbotChatResponse, AIbotDto, errorCatch } from 'shared/api'
 import { Button, InputWithLeadingIcon } from 'shared/ui'
 import { toast } from 'sonner'
 
 interface IProps {
   onSendMessage: (message: string) => void
-  onSuccessResponse: (response: ChatbotResponse) => void
+  onSuccessResponse: (response: AIbotChatResponse) => void
   onError: (error: any) => void
 }
 
-export const ChatbotForm = ({
+export const AIbotChatForm = ({
   onSendMessage,
   onSuccessResponse,
   onError,
 }: IProps) => {
-  const { mutate, isPending } = useChatbotGenerativeResponseMutation({
+  const { mutate, isPending } = useAIbotGenerativeResponseMutation({
     onSuccess: (data) => {
       onSuccessResponse(data)
     },
@@ -26,7 +26,7 @@ export const ChatbotForm = ({
     },
   })
 
-  const formik = useFormik<ChatbotDto>({
+  const formik = useFormik<AIbotDto>({
     initialValues: {
       message: '',
     },

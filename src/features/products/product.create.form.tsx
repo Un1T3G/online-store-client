@@ -38,12 +38,17 @@ interface IProps {
     images: string[]
     onChangeImages: (images: string[]) => void
   }) => ReactNode
+  renderGenerateAttributesButton: (props: {
+    productTitle: string
+    setValue: (field: string, value: any) => void
+  }) => ReactNode
 }
 
 export const ProductCreateForm = ({
   colors,
   categories,
   renderMultiUpdateImage,
+  renderGenerateAttributesButton,
 }: IProps) => {
   const { mutate, isPending } = useProductCreateMutation({
     onSuccess: () => {
@@ -99,7 +104,13 @@ export const ProductCreateForm = ({
         )}
       />
       <div className="space-y-1 mb-2">
-        <Label>Атрибуты</Label>
+        <div className="flex items-center justify-between">
+          <Label>Атрибуты</Label>
+          {renderGenerateAttributesButton({
+            productTitle: formik.values.title,
+            setValue: formik.setFieldValue,
+          })}
+        </div>
         <FormAttributesField formik={formik} />
       </div>
       <FormField
