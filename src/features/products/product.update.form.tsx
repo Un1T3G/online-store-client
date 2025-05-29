@@ -51,7 +51,13 @@ export const ProductUpdateForm = ({
   })
 
   const formik = useFormik({
-    initialValues,
+    initialValues: {
+      ...initialValues,
+      attributes: initialValues.attributes.map((x) => ({
+        title: x.title,
+        value: x.value,
+      })),
+    },
     onSubmit: (values) => {
       mutate(values)
     },

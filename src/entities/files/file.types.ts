@@ -1,4 +1,4 @@
 export enum FileFolderType {
   PRODUCT = 'product',
-  AVATAR = 'avatar',
+  AVATAR = 'avatars',
 }

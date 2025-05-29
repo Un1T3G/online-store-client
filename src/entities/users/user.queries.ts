@@ -5,6 +5,7 @@ import {
   UserResponse,
   userService,
 } from 'shared/api'
+import { useAppSelector } from 'shared/lib'
 import { MutationOptions, QueryOptions } from 'shared/types'
 
 export const userKeys = {
@@ -15,8 +16,10 @@ export const userKeys = {
 }
 
 export const useUserProfileQuery = (options?: QueryOptions<UserResponse>) => {
+  const isAuth = useAppSelector((state) => state.sessionReducer.isAuth)
+
   return useQuery({
-    queryKey: userKeys.profile,
+    queryKey: [...userKeys.profile, isAuth],
     queryFn: () => userService.getProfile(),
     ...options,
   })

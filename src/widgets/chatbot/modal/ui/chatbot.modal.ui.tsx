@@ -48,7 +48,7 @@ export const ChatbotModal = ({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="h-[calc(100vh-2rem)] sm:h-auto sm:max-w-4xl w-full flex flex-col overflow-y-hidden">
+      <DialogContent className="max-h-[calc(100vh-2rem)] sm:h-auto sm:max-w-4xl w-full flex flex-col overflow-y-hidden">
         <DialogHeader className="flex flex-row justify-between items-center">
           <DialogTitle>Чат бот</DialogTitle>
           <DialogClose asChild>
