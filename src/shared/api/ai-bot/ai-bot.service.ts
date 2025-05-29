@@ -7,7 +7,7 @@ import {
 
 class AIbotService {
   async generativeResponse(dto: AIbotDto) {
-    return fetchClassic.post<AIbotChatResponse>('ai-bot/chat', dto)
+    return fetchClassic.post<AIbotChatResponse>('ai-bot/chatbot', dto)
   }
 
   async generateProductAttributes(dto: AIbotDto) {
