@@ -56,7 +56,7 @@ const Header = () => {
           adminNavigationSlot={<AdminNavigation />}
         />
         <Button
-          className="fixed bottom-4 right-4"
+          className="fixed bottom-4 right-4 z-10"
           size="icon"
           onClick={handleOpenChatbot}
         >
