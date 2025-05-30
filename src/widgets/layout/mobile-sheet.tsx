@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { PropsWithChildren, ReactNode, useMemo } from 'react'
 import { routes } from 'shared/config'
-import { useAppSelector } from 'shared/lib'
+import { useAppSelector, useAutoCloseDialog } from 'shared/lib'
 import { Button, Sheet, SheetContent, SheetTitle } from 'shared/ui'
 
 interface IProps extends PropsWithChildren {
@@ -31,6 +31,8 @@ export const MobileSheet = ({
     () => (pathname ? pathname.includes('manage') : false),
     [pathname]
   )
+
+  useAutoCloseDialog({ open, onOpenChange })
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>

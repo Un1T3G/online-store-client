@@ -15,7 +15,7 @@ interface IProps {
 
 export const CategoryDataTable = ({ searchTerm }: IProps) => {
   const { page, fetchNext, fetchPrev } = usePagePaginate()
-  const { data, isLoading, isError, error } = useCategoryQuery(
+  const { data, isFetching, isError, error } = useCategoryQuery(
     {},
     { searchTerm, page, perPage: itemsPerPage }
   )
@@ -25,7 +25,7 @@ export const CategoryDataTable = ({ searchTerm }: IProps) => {
       data={data!}
       headers={headers}
       isError={isError}
-      isLoading={isLoading}
+      isLoading={isFetching}
       error={error}
       skeletonItemLength={itemsPerPage}
       fetchNext={fetchNext}

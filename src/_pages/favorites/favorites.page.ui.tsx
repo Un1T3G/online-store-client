@@ -13,7 +13,7 @@ interface IProps {
 export const FavoritesPage = ({ products }: IProps) => {
   const params = useSearchParams()
   const page = Number(params.get('page') || 1)
-  const { data, isLoading, error, isError } = useFavoriteProductsQuery(
+  const { data, isFetching, error, isError } = useFavoriteProductsQuery(
     {
       initialData: products,
     },
@@ -33,7 +33,7 @@ export const FavoritesPage = ({ products }: IProps) => {
       <ProductCatalog
         page={page}
         products={data!}
-        isLoading={isLoading}
+        isLoading={isFetching}
         isError={isError}
         error={error}
         className="flex-1"

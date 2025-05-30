@@ -14,7 +14,7 @@ interface IProps {
 export const CatalogByCategoryPage = ({ category, products }: IProps) => {
   const params = useSearchParams()
   const page = Number(params.get('page') || 1)
-  const { data, isLoading, error, isError } = useProductsByCategoryQuery(
+  const { data, isFetching, error, isError } = useProductsByCategoryQuery(
     category.id,
     {
       initialData: products,
@@ -33,7 +33,7 @@ export const CatalogByCategoryPage = ({ category, products }: IProps) => {
       <ProductCatalog
         page={page}
         products={data!}
-        isLoading={isLoading}
+        isLoading={isFetching}
         isError={isError}
         error={error}
         className="flex-1"

@@ -14,7 +14,7 @@ export const CatalogPage = ({ products }: IProps) => {
   const params = useSearchParams()
   const page = Number(params.get('page') || 1)
   const searchTerm = params.get('searchTerm') || ''
-  const { data, isLoading, error, isError } = useProductsQuery(
+  const { data, error, isError, isFetching } = useProductsQuery(
     {
       initialData: products,
     },
@@ -34,7 +34,7 @@ export const CatalogPage = ({ products }: IProps) => {
       <ProductCatalog
         page={page}
         products={data!}
-        isLoading={isLoading}
+        isLoading={isFetching}
         isError={isError}
         error={error}
         className="flex-1"

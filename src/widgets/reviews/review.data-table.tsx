@@ -10,7 +10,7 @@ const itemsPerPage = 5
 
 export const ReviewDataTable = () => {
   const { page, fetchNext, fetchPrev } = usePagePaginate()
-  const { data, isLoading, isError, error } = useReviewsQuery(
+  const { data, isFetching, isError, error } = useReviewsQuery(
     {},
     { page, perPage: itemsPerPage }
   )
@@ -20,7 +20,7 @@ export const ReviewDataTable = () => {
       data={data!}
       headers={headers}
       isError={isError}
-      isLoading={isLoading}
+      isLoading={isFetching}
       error={error}
       skeletonItemLength={itemsPerPage}
       fetchNext={fetchNext}

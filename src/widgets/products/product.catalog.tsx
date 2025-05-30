@@ -41,16 +41,18 @@ export const ProductCatalog = ({
 
   if (isLoading) {
     return (
-      <div
-        className={cn(
-          'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4',
-          className
-        )}
-      >
-        {arrayRange(6).map((x) => (
-          <Skeleton key={x} className="rounded-lg h-[200px]" />
-        ))}
-      </div>
+      <Container>
+        <div
+          className={cn(
+            'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4',
+            className
+          )}
+        >
+          {arrayRange(PRODUCT_PER_PAGE).map((x) => (
+            <Skeleton key={x} className="rounded-lg h-0 pb-[100%]" />
+          ))}
+        </div>
+      </Container>
     )
   }
 

@@ -16,7 +16,7 @@ interface IProps {
 
 export const ProductDataTable = ({ searchTerm }: IProps) => {
   const { page, fetchNext, fetchPrev } = usePagePaginate()
-  const { data, isLoading, isError, error } = useProductsQuery(
+  const { data, isFetching, isError, error } = useProductsQuery(
     {},
     { searchTerm, page, perPage: itemsPerPage }
   )
@@ -26,7 +26,7 @@ export const ProductDataTable = ({ searchTerm }: IProps) => {
       data={data!}
       headers={headers}
       isError={isError}
-      isLoading={isLoading}
+      isLoading={isFetching}
       error={error}
       skeletonItemLength={itemsPerPage}
       fetchNext={fetchNext}

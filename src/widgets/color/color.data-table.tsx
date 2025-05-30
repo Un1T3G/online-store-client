@@ -15,7 +15,7 @@ interface IProps {
 
 export const ColorDataTable = ({ searchTerm }: IProps) => {
   const { page, fetchNext, fetchPrev } = usePagePaginate()
-  const { data, isLoading, isError, error } = useColorsQuery(
+  const { data, isFetching, isError, error } = useColorsQuery(
     {},
     { searchTerm, page, perPage: itemsPerPage }
   )
@@ -25,7 +25,7 @@ export const ColorDataTable = ({ searchTerm }: IProps) => {
       data={data!}
       headers={headers}
       isError={isError}
-      isLoading={isLoading}
+      isLoading={isFetching}
       error={error}
       skeletonItemLength={itemsPerPage}
       fetchNext={fetchNext}

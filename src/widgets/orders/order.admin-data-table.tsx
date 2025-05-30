@@ -8,7 +8,7 @@ const itemsPerPage = 5
 
 export const OrderAdminDataTable = () => {
   const { page, fetchNext, fetchPrev } = usePagePaginate()
-  const { data, isLoading, isError, error } = useOrdersQuery(
+  const { data, isFetching, isError, error } = useOrdersQuery(
     {},
     { page, perPage: itemsPerPage }
   )
@@ -18,7 +18,7 @@ export const OrderAdminDataTable = () => {
       data={data!}
       headers={orderHeaders}
       isError={isError}
-      isLoading={isLoading}
+      isLoading={isFetching}
       error={error}
       skeletonItemLength={itemsPerPage}
       fetchNext={fetchNext}
