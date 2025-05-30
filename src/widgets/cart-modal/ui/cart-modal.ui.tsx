@@ -26,7 +26,7 @@ export const CartModal = () => {
           Корзина
         </Button>
       </SheetTrigger>
-      <SheetContent className="p-4 gap-0">
+      <SheetContent className="p-4 gap-0 overflow-y-auto">
         <Content />
       </SheetContent>
     </Sheet>
@@ -50,12 +50,13 @@ const Content = () => {
   }
 
   return (
-    <div className="">
+    <div className="flex flex-col">
       <SheetTitle className="text-2xl mb-4">
         {items.length > 0
           ? `Корзина товаров (${items.length})`
           : 'Корзина товаров'}
       </SheetTitle>
+
       <div className="space-y-4">
         {items.map((item, index) => (
           <div key={item.product.id} className="flex items-center space-x-4">
@@ -88,7 +89,7 @@ const Content = () => {
         ))}
       </div>
       {items.length > 0 && (
-        <div className="absolute bottom-0 left-0 right-0 p-4">
+        <div className="mt-4">
           <div className="text-base mb-2">
             Итоговая сумма: {formatPrice(totalCost)}
           </div>
