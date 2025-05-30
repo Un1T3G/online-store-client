@@ -2,6 +2,7 @@ import { sessionActions } from 'entities/session'
 import { usePathname, useRouter } from 'next/navigation'
 import { PropsWithChildren, useEffect, useRef } from 'react'
 import { AuthEvents, authTokenService } from 'shared/api'
+import { routes } from 'shared/config'
 import { useAppDispatch, useAppSelector } from 'shared/lib'
 import { toast } from 'sonner'
 
@@ -52,13 +53,13 @@ export const SessionProvider = ({ children }: PropsWithChildren) => {
     const accessToken = authTokenService.getAccessToken()
     const isAuthRoute = pathname?.includes('auth')
 
-    if (accessToken === undefined && isAuth) {
+    if (!accessToken && isAuth) {
       dispatch(sessionActions.setIsAuth(false))
       if (!isAuthRoute) {
-        router.push('/auth/login')
+        router.push(routes.authLogin)
       }
     }
-  }, [isAuth, pathname])
+  }, [isAuth, router, pathname])
 
   return children
 }

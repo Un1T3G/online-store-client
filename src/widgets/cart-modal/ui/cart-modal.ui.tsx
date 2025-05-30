@@ -59,12 +59,12 @@ const Content = () => {
       <div className="space-y-4">
         {items.map((item, index) => (
           <div key={item.product.id} className="flex items-center space-x-4">
-            <div className="relative w-[140px] h-[140px] rounded-lg overflow-hidden">
+            <div className="relative w-[140px] h-[140px] rounded-lg bg-zinc-200 overflow-hidden">
               <Image
                 src={item.product.images[0]}
                 alt={item.product.title}
                 fill
-                className="object-cover"
+                className="object-cover top-0 left-0"
               />
             </div>
             <div className="space-y-1">

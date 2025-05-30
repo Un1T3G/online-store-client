@@ -35,6 +35,11 @@ export const AIbotChatForm = ({
         return
       }
 
+      if (!values.message) {
+        toast.info('Введите сообщение')
+        return
+      }
+
       onSendMessage(values.message)
       mutate(values)
       formik.resetForm()

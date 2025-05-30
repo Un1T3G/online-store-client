@@ -1,6 +1,6 @@
-import { ArrowRight, Container, Link } from 'lucide-react'
+import { ArrowRight, Link } from 'lucide-react'
 import { routes } from 'shared/config'
-import { Button } from 'shared/ui'
+import { Button, Container } from 'shared/ui'
 
 export const ThanksPage = () => {
   return (

@@ -4,7 +4,7 @@ import { Heart, Menu, ShoppingBag } from 'lucide-react'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import { routes } from 'shared/config'
-import { useBreakpoint } from 'shared/lib'
+import { useAppSelector, useBreakpoint } from 'shared/lib'
 import { Button } from 'shared/ui'
 
 interface IProps {
@@ -15,6 +15,7 @@ interface IProps {
 
 export const Navigation = ({ openSheet, cartSlot, profileCard }: IProps) => {
   const hideNavigation = useBreakpoint('md')
+  const isAuth = useAppSelector((state) => state.sessionReducer.isAuth)
 
   if (hideNavigation) {
     return (
@@ -33,12 +34,14 @@ export const Navigation = ({ openSheet, cartSlot, profileCard }: IProps) => {
           Каталог
         </Link>
       </Button>
-      <Button variant="secondary" asChild>
-        <Link href={routes.favorites}>
-          <Heart />
-          Избранное
-        </Link>
-      </Button>
+      {isAuth && (
+        <Button variant="secondary" asChild>
+          <Link href={routes.favorites}>
+            <Heart />
+            Избранное
+          </Link>
+        </Button>
+      )}
       {profileCard}
     </nav>
   )

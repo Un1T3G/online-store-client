@@ -1,8 +1,9 @@
 import { FavoritesPage } from '_pages/favorites'
 import { Metadata } from 'next'
 import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
 import { ACCESS_TOKEN_KEY, productService } from 'shared/api'
-import { PRODUCT_PER_PAGE } from 'shared/config'
+import { PRODUCT_PER_PAGE, routes } from 'shared/config'
 
 export const revalidate = 0
 
@@ -13,6 +14,10 @@ export const metadata: Metadata = {
 async function getProducts(page: number) {
   const cookie = await cookies()
   const accessToken = cookie.get(ACCESS_TOKEN_KEY)?.value
+
+  if (!accessToken) {
+    redirect(routes.authLogin)
+  }
 
   const products = await productService.getFavorites(
     {

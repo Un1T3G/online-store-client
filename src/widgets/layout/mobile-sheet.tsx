@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { PropsWithChildren, ReactNode, useMemo } from 'react'
 import { routes } from 'shared/config'
+import { useAppSelector } from 'shared/lib'
 import { Button, Sheet, SheetContent, SheetTitle } from 'shared/ui'
 
 interface IProps extends PropsWithChildren {
@@ -25,7 +26,7 @@ export const MobileSheet = ({
   adminNavigationSlot,
 }: IProps) => {
   const pathname = usePathname()
-
+  const isAuth = useAppSelector((state) => state.sessionReducer.isAuth)
   const isAdminRoute = useMemo(
     () => (pathname ? pathname.includes('manage') : false),
     [pathname]
@@ -43,18 +44,22 @@ export const MobileSheet = ({
           adminNavigationSlot
         ) : (
           <nav className="flex flex-col space-y-2">
-            <Button className="justify-start" variant="secondary" asChild>
-              <Link href={routes.profile}>
-                <User />
-                Профиль
-              </Link>
-            </Button>
-            <Button className="justify-start" variant="secondary" asChild>
-              <Link href={routes.orders}>
-                <ShoppingCart />
-                Заказы
-              </Link>
-            </Button>
+            {isAuth && (
+              <>
+                <Button className="justify-start" variant="secondary" asChild>
+                  <Link href={routes.profile}>
+                    <User />
+                    Профиль
+                  </Link>
+                </Button>
+                <Button className="justify-start" variant="secondary" asChild>
+                  <Link href={routes.orders}>
+                    <ShoppingCart />
+                    Заказы
+                  </Link>
+                </Button>
+              </>
+            )}
             {cartSlot}
             <Button className="justify-start" variant="secondary" asChild>
               <Link href={routes.catalog}>
@@ -62,12 +67,14 @@ export const MobileSheet = ({
                 Каталог
               </Link>
             </Button>
-            <Button className="justify-start" variant="secondary" asChild>
-              <Link href={routes.favorites}>
-                <Heart />
-                Избранное
-              </Link>
-            </Button>
+            {isAuth && (
+              <Button className="justify-start" variant="secondary" asChild>
+                <Link href={routes.favorites}>
+                  <Heart />
+                  Избранное
+                </Link>
+              </Button>
+            )}
           </nav>
         )}
       </SheetContent>
