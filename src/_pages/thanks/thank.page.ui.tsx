@@ -1,4 +1,5 @@
-import { ArrowRight, Link } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 import { routes } from 'shared/config'
 import { Button, Container } from 'shared/ui'
 

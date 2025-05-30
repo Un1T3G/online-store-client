@@ -1,1 +1,1 @@
-export * from './ai-botqueries'
+export * from './ai-bot.queries'
