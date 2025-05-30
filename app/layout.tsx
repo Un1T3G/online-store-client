@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Онлайн магазин',
   description: 'Онлайн магазин Fake-Store',
   authors: [
-    { name: 'Xayratdinov Kamalatdin', url: 'https://github.com/un1t3g' },
+    { name: 'Хайратдинов Камалатдин', url: 'https://github.com/un1t3g' },
   ],
 }
 
@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <body
         className={`antialiased ${geistMonoFont.className} ${interFont.className}`}
       >

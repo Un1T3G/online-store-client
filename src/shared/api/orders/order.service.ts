@@ -1,10 +1,15 @@
 import { fetchAuth } from '../fetch'
 import { PaginationResult, PaginatorQuery } from '../query.types'
-import { OrderCreateDto, OrderResponse, PaymentResponse } from './order.types'
+import {
+  OrderCreateDto,
+  OrderResponse,
+  OrderResponseWithUser,
+  PaymentResponse,
+} from './order.types'
 
 class OrderService {
   getAll(query?: PaginatorQuery) {
-    return fetchAuth.get<PaginationResult<OrderResponse>>('orders', {
+    return fetchAuth.get<PaginationResult<OrderResponseWithUser>>('orders', {
       params: query,
     })
   }

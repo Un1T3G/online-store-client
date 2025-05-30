@@ -1,7 +1,9 @@
 import { getOrderStatus, useOrdersByUserQuery } from 'entities/orders'
 import { formatPrice } from 'entities/products'
-import { orderHeaders } from 'shared/config'
+
 import { DataTable, TableCell, TableRow } from 'shared/ui'
+
+export const orderHeaders = ['N#', 'Дата', 'Статус', 'Сумма']
 
 export const OrderUserDataTable = () => {
   const { data, isLoading, isError, error } = useOrdersByUserQuery()

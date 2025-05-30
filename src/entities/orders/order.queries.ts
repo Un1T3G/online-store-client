@@ -2,6 +2,7 @@ import { QueryOptions, useMutation, useQuery } from '@tanstack/react-query'
 import {
   OrderCreateDto,
   OrderResponse,
+  OrderResponseWithUser,
   PaginationResult,
   PaginatorQuery,
   PaymentResponse,
@@ -16,7 +17,7 @@ export const orderKeys = {
 }
 
 export const useOrdersQuery = (
-  options?: QueryOptions<PaginationResult<OrderResponse>>,
+  options?: QueryOptions<PaginationResult<OrderResponseWithUser>>,
   query?: PaginatorQuery
 ) => {
   return useQuery({

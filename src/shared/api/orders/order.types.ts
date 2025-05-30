@@ -1,8 +1,14 @@
+import { UserResponse } from '../users'
+
 export interface OrderResponse {
   id: string
   total: number
   status: EnumOrderStatus
   createdAt: string
+}
+
+export interface OrderResponseWithUser extends OrderResponse {
+  user: UserResponse
 }
 
 export interface PaymentResponse {
