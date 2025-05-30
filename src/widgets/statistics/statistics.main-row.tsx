@@ -1,3 +1,4 @@
+import { formatPrice } from 'entities/products'
 import {
   getMainStatisticsData,
   useMainStatisticsQuery,
@@ -39,7 +40,9 @@ export const StatisticsMainRow = () => {
               <Icon />
             </div>
             <span className="text-2xl font-extrabold">
-              {Number(x.value).toFixed(x.name === 'average_rating' ? 1 : 0)}
+              {x.name === 'revenue'
+                ? formatPrice(Number(x.value))
+                : Number(x.value).toFixed(x.name === 'average_rating' ? 1 : 0)}
             </span>
           </Card>
         )
