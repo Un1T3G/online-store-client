@@ -114,7 +114,7 @@ export const StatisticsMiddleRow = ({ showFakeData = false }: IProps) => {
         <div className="space-y-2 w-full">
           {middleStatistics!.lastUsers.map((x) => (
             <div key={x.id} className="flex items-center space-x-2">
-              <div className="relative w-9 h-9 rounded-full overflow-hidden bg-slate-100">
+              <div className="relative w-9 h-9 rounded-full overflow-hidden bg-slate-100 shrink-0 grow-0">
                 <Image
                   src={x.avatarUrl}
                   alt={x.name}
@@ -124,9 +124,11 @@ export const StatisticsMiddleRow = ({ showFakeData = false }: IProps) => {
               </div>
               <div className="flex-1 flex flex-col justify-between">
                 <span className="text-sm font-medium">{x.name}</span>
-                <span className="text-sm font-bold">{x.email}</span>
+                <span className="text-sm font-bold text-ellipsis max-w-[120px] overflow-hidden sm:max-w-full">
+                  {x.email}
+                </span>
               </div>
-              <span className="text-xl font-medium">
+              <span className="text-base sm:text-xl font-medium">
                 +{formatPrice(x.total)}
               </span>
             </div>

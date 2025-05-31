@@ -22,7 +22,7 @@ export const ProductRow = ({
   return (
     <div>
       <div className="flex flex-col md:flex-row items-center justify-between mb-4">
-        <div className="mb-2 md:mb-0">
+        <div className="mb-2 md:mb-0 w-full">
           <h2 className="text-xl font-semibold">{title}</h2>
           <p className="text-sm text-muted-foreground">{description}</p>
         </div>
