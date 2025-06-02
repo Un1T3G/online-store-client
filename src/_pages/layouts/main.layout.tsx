@@ -55,7 +55,7 @@ const Header = () => {
           cartSlot={<CartModal />}
           profileSlot={<UserProfileCard className="pl-2" />}
           adminNavigationSlot={<AdminNavigation />}
-          footerSlot={<AuthorCard />}
+          footerSlot={<AuthorCard autoNameShorter={true} />}
         />
         <Button
           className="fixed bottom-4 right-4 z-10"

@@ -1,9 +1,11 @@
 import { useMediaQuery } from './use-media-query'
 
-type BreakPoint = 'xs' | 'sm' | 'md' | 'lg'
+type BreakPoint = 'xs' | 'sm' | 'md' | 'lg' | 'xxs'
 
 const getWidth = (breakpoint: BreakPoint) => {
   switch (breakpoint) {
+    case 'xxs':
+      return 479
     case 'xs':
       return 639
     case 'sm':
