@@ -34,7 +34,7 @@ export const AuthorCard = ({ className }: IProps) => {
         </h2>
         <div className="flex space-x-2">
           {Object.keys(AUTHOR_INFO.socials).map((key) => (
-            <Button key={key} variant="outline" size="icon" asChild>
+            <Button key={key} variant="default" size="icon" asChild>
               <Link
                 href={
                   AUTHOR_INFO.socials[
