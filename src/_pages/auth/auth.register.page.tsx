@@ -1,7 +1,7 @@
 'use client'
 
 import { AuthGoogleButton, AuthRegisterForm } from 'features/auth'
-import { FileSingleImageUpload } from 'features/files'
+import { FileAvatarUpload } from 'features/files'
 import Link from 'next/link'
 import { routes } from 'shared/config'
 import { Card, Container } from 'shared/ui'
@@ -20,7 +20,7 @@ export const AuthRegisterPage = () => {
               </Link>
             </p>
           }
-          renderImageUpload={(props) => <FileSingleImageUpload {...props} />}
+          renderImageUpload={(props) => <FileAvatarUpload {...props} />}
         />
         <AuthGoogleButton className="mt-2" />
       </Card>

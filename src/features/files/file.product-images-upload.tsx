@@ -14,7 +14,7 @@ interface IProps {
   className?: string
 }
 
-export const FileMultiImageUpload = ({
+export const FileProductImagesUpload = ({
   images,
   onChangeImages,
   className,

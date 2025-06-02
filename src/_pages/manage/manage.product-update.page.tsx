@@ -1,6 +1,6 @@
 'use client'
 
-import { FileMultiImageUpload } from 'features/files'
+import { FileProductImagesUpload } from 'features/files'
 import { ProductUpdateForm } from 'features/products'
 import { CategoryResponse, ColorResponse, ProductResponse } from 'shared/api'
 import { Card } from 'shared/ui'
@@ -36,7 +36,7 @@ export const ManageProductUpdatePage = ({
           colors={colors}
           categories={categories}
           renderMultiUpdateImage={(props) => (
-            <FileMultiImageUpload {...props} />
+            <FileProductImagesUpload {...props} />
           )}
         />
       </Card>

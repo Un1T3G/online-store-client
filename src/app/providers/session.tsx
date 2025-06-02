@@ -13,13 +13,15 @@ export const SessionProvider = ({ children }: PropsWithChildren) => {
   const isAuthRef = useRef(false)
   const isAuth = useAppSelector((state) => state.sessionReducer.isAuth)
 
-  isAuthRef.current = isAuth
+  useEffect(() => {
+    isAuthRef.current = isAuth
+  }, [isAuth])
 
   useEffect(() => {
     const handleTokensExpired = () => {
       authTokenService.removeTokens()
       dispatch(sessionActions.setIsAuth(false))
-      toast.error('Время сессии истекло. Пожалуйста, войдите заново.')
+      toast.error('Время сессии истекло. Пожалуйста, войдите заново.')
     }
 
     const handleTokenRefresh = () => {
@@ -28,26 +30,20 @@ export const SessionProvider = ({ children }: PropsWithChildren) => {
       }
     }
 
-    document.addEventListener(
-      AuthEvents.onTokensExpired.type,
-      handleTokensExpired
-    )
-    document.addEventListener(
-      AuthEvents.onRefreshTokens.type,
-      handleTokenRefresh
-    )
+    AuthEvents.addEventListener(AuthEvents.onTokensExpired, handleTokensExpired)
+    AuthEvents.addEventListener(AuthEvents.onRefreshTokens, handleTokenRefresh)
 
     return () => {
-      document.removeEventListener(
-        AuthEvents.onTokensExpired.type,
+      AuthEvents.removeEventListener(
+        AuthEvents.onTokensExpired,
         handleTokensExpired
       )
-      document.removeEventListener(
-        AuthEvents.onRefreshTokens.type,
+      AuthEvents.removeEventListener(
+        AuthEvents.onRefreshTokens,
         handleTokenRefresh
       )
     }
-  }, [isAuthRef])
+  }, [])
 
   useEffect(() => {
     const accessToken = authTokenService.getAccessToken()

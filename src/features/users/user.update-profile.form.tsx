@@ -18,6 +18,7 @@ const defaultInitialValues: UserProfileUpdateDto = {
 interface IProps {
   initialValues?: UserProfileUpdateDto
   renderImageUpload: (props: {
+    name: string
     src: string
     onChangeSrc: (newSrc: string) => void
   }) => ReactNode
@@ -61,7 +62,11 @@ export const UserUpdateProfileForm = ({
         label="Аватар"
         className="mb-2"
         renderField={(props) =>
-          renderImageUpload({ src: props.value, onChangeSrc: props.onChange })
+          renderImageUpload({
+            name: props.name,
+            src: props.value,
+            onChangeSrc: (newSrc) => formik.setFieldValue(props.name, newSrc),
+          })
         }
       />
       <Button type="submit" className="w-full">

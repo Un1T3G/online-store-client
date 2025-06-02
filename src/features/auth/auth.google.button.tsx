@@ -12,7 +12,6 @@ export const AuthGoogleButton = ({ className }: IProps) => {
   const router = useRouter()
 
   const handleOnClick = () => {
-    console.log('hello')
     router.push(`${process.env.SERVER_URL}/api/auth/google`)
   }
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { AIbotGenerateProductAttributesButton } from 'features/ai-bot'
-import { FileMultiImageUpload } from 'features/files'
+import { FileProductImagesUpload } from 'features/files'
 import { ProductCreateForm } from 'features/products'
 import { CategoryResponse, ColorResponse } from 'shared/api'
 import { Card } from 'shared/ui'
@@ -20,7 +20,7 @@ export const ManageProductCreatePage = ({ colors, categories }: IProps) => {
           colors={colors}
           categories={categories}
           renderMultiUpdateImage={(props) => (
-            <FileMultiImageUpload {...props} />
+            <FileProductImagesUpload {...props} />
           )}
           renderGenerateAttributesButton={(props) => (
             <AIbotGenerateProductAttributesButton

@@ -49,10 +49,11 @@ export class UseAuthInterceptors {
           try {
             const refreshToken = authTokenService.getRefreshToken()!
             const tokens = await authService.getNewTokens({ refreshToken })
+
             authTokenService.setTokens(tokens)
 
             if (IS_CLIENT_SIDE) {
-              document.dispatchEvent(AuthEvents.onRefreshTokens)
+              AuthEvents.dispatchRefreshTokens()
             }
 
             return this.fetchInstance.instance.request(originalRequest)
@@ -61,7 +62,7 @@ export class UseAuthInterceptors {
               authTokenService.removeTokens()
 
               if (IS_CLIENT_SIDE) {
-                document.dispatchEvent(AuthEvents.onTokensExpired)
+                AuthEvents.dispatchTokensExpired()
               }
             }
           }

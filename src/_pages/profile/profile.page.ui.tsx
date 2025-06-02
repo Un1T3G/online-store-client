@@ -1,6 +1,6 @@
 'use client'
 
-import { FileSingleImageUpload } from 'features/files'
+import { FileAvatarUpload } from 'features/files'
 import { UserUpdateAddressForm, UserUpdateProfileForm } from 'features/users'
 import { TriangleAlert } from 'lucide-react'
 import { UserResponse } from 'shared/api'
@@ -32,9 +32,7 @@ export const ProfilePage = ({ user }: IProps) => {
                 name: user.name,
                 avatarUrl: user.avatarUrl,
               }}
-              renderImageUpload={(props) => (
-                <FileSingleImageUpload {...props} />
-              )}
+              renderImageUpload={(props) => <FileAvatarUpload {...props} />}
             />
           </Card>
           <Card className="p-4 flex-1">

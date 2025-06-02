@@ -8,8 +8,6 @@ export const orderHeaders = ['N#', 'Дата', 'Статус', 'Сумма']
 export const OrderUserDataTable = () => {
   const { data, isLoading, isError, error } = useOrdersByUserQuery()
 
-  console.log(data)
-
   return (
     <DataTable
       data={{

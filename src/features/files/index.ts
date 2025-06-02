@@ -1,2 +1,2 @@
-export * from './file.multi-image-upload'
-export * from './file.single-image-upload'
+export * from './file.product-images-upload'
+export * from './file.avatar-upload'

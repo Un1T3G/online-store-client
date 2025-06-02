@@ -10,12 +10,14 @@ import { Button, Skeleton } from 'shared/ui'
 import { toast } from 'sonner'
 
 interface IProps {
+  name: string
   src: string
   onChangeSrc: (newSrc: string) => void
   className?: string
 }
 
-export const FileSingleImageUpload = ({
+export const FileAvatarUpload = ({
+  name,
   src,
   onChangeSrc,
   className,
@@ -77,6 +79,7 @@ export const FileSingleImageUpload = ({
       </Button>
       <input
         ref={ref}
+        name={name}
         type="file"
         accept="image/*"
         className="hidden"
