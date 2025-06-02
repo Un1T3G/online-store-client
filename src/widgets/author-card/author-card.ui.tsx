@@ -28,6 +28,9 @@ export const AuthorCard = ({ className, autoNameShorter = false }: IProps) => {
           src="/avatar/author.png"
           alt={AUTHOR_INFO.username}
           className="object-cover"
+          loading="lazy"
+          placeholder="blur"
+          blurDataURL="/avatar/author.png"
         />
         <video
           src={AUTHOR_INFO.avatarVideo}

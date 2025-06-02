@@ -16,7 +16,7 @@ export const ProfilePage = ({ user }: IProps) => {
       <Container className="space-y-4">
         <h1 className="text-2xl font-bold">Профиль</h1>
         {!user.address && (
-          <Card className="p-4 flex flex-row gap-0 space-x-2 w-full">
+          <Card className="p-4 flex flex-row items-center gap-0 space-x-2 w-full">
             <div>
               <TriangleAlert className="text-red-500" />
             </div>
