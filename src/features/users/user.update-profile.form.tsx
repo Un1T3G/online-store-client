@@ -1,4 +1,5 @@
-import { useUserUpdateProfileMutation } from 'entities/users'
+import { useQueryClient } from '@tanstack/react-query'
+import { useUserUpdateProfileMutation, userKeys } from 'entities/users'
 import { useFormik } from 'formik'
 import { Save, User } from 'lucide-react'
 import { ReactNode } from 'react'
@@ -28,8 +29,10 @@ export const UserUpdateProfileForm = ({
   initialValues,
   renderImageUpload,
 }: IProps) => {
+  const queryClient = useQueryClient()
   const { mutate } = useUserUpdateProfileMutation({
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: userKeys.profile })
       toast.success('Профиль успешно обновлен')
     },
     onError: (error) => {

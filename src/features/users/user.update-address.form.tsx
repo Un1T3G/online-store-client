@@ -1,4 +1,5 @@
-import { useUserUpdateAddressMutation } from 'entities/users'
+import { useQueryClient } from '@tanstack/react-query'
+import { useUserUpdateAddressMutation, userKeys } from 'entities/users'
 import { useFormik } from 'formik'
 import { Building2, MapPinHouse, Package, Save } from 'lucide-react'
 import {
@@ -21,8 +22,10 @@ interface IProps {
 }
 
 export const UserUpdateAddressForm = ({ initialValues }: IProps) => {
+  const queryClient = useQueryClient()
   const { mutate } = useUserUpdateAddressMutation({
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: userKeys.profile })
       toast.success('Адрес успешно обновлен')
     },
     onError: (error) => {
