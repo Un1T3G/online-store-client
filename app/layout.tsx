@@ -2,13 +2,12 @@ import { Providers } from 'app'
 import 'app/styles/globals.css'
 import type { Metadata } from 'next'
 import { Geist_Mono, Inter } from 'next/font/google'
+import { AUTHOR_INFO } from 'shared/config'
 
 export const metadata: Metadata = {
   title: 'Онлайн магазин',
   description: 'Онлайн магазин Fake-Store',
-  authors: [
-    { name: 'Хайратдинов Камалатдин', url: 'https://github.com/un1t3g' },
-  ],
+  authors: [{ name: AUTHOR_INFO.fullName, url: AUTHOR_INFO.socials.github }],
 }
 
 const interFont = Inter({

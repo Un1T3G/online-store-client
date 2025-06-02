@@ -2,6 +2,7 @@
 
 import { PropsWithChildren, useState } from 'react'
 import { NoSSR, useBreakpoint } from 'shared/lib'
+import { AuthorCard } from 'widgets/author-card'
 import { CartModal } from 'widgets/cart-modal'
 import {
   AdminNavigation,
@@ -40,6 +41,7 @@ const Header = () => {
           cartSlot={<CartModal />}
           profileSlot={<UserProfileCard className="pl-2" />}
           adminNavigationSlot={<AdminNavigation />}
+          footerSlot={<AuthorCard />}
         />
       </NoSSR>
     </>

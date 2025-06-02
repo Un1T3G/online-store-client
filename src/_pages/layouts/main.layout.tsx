@@ -6,6 +6,7 @@ import { PropsWithChildren, useState } from 'react'
 import { NoSSR } from 'shared/lib'
 import { Button, Container } from 'shared/ui'
 import { AIbotChatModal } from 'widgets/ai-bot'
+import { AuthorCard } from 'widgets/author-card'
 import { CartModal } from 'widgets/cart-modal'
 import {
   AdminNavigation,
@@ -54,6 +55,7 @@ const Header = () => {
           cartSlot={<CartModal />}
           profileSlot={<UserProfileCard className="pl-2" />}
           adminNavigationSlot={<AdminNavigation />}
+          footerSlot={<AuthorCard />}
         />
         <Button
           className="fixed bottom-4 right-4 z-10"
